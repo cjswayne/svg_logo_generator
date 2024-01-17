@@ -38,24 +38,22 @@ class GenerateSVG{
         const svgPath = `./examples/${shapeInnerText}_svg.svg`;
         fs.writeFile(svgPath, shape.createShape(), (err) => {
             if(err) return console.log(err);
-            // open(`./examples/${shapeInnerText}_svg.svg`).then(() => {
-            //     console.log(`${shapeInnerText}.svg Created Succesfully`);
-            // }).catch(err => {
-            //     console.error('Error opening file:', err);
-            // })
 
-            import('open').then(open => {
-                open.default(svgPath).then(() => {
-                    console.log(`${shapeInnerText}.svg Created Succesfully`);
-                })
-                .catch(err => {
-                    console.error('Error opening file:', err); });
-
-            }).catch(err => {
-                console.error('Failed to load module:', err);
-            });
-            
+            GenerateSVG.openFile(svgPath);
         })
+    }
+
+    static openFile(svgPath){
+        import('open').then(open => {
+            open.default(svgPath).then(() => {
+                console.log(`${shapeInnerText}.svg Created Succesfully`);
+            })
+            .catch(err => {
+                console.error('Error opening file:', err); });
+
+        }).catch(err => {
+            console.error('Failed to load module:', err);
+        });
     }
 }
 
