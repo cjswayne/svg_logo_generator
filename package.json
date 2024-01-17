@@ -16,6 +16,7 @@
   "dependencies": {
     "color-convert": "^2.0.1",
     "color-name": "^2.0.0",
-    "inquirer": "^8.2.6"
+    "inquirer": "^8.2.6",
+    "open": "^10.0.3"
   }
 }
